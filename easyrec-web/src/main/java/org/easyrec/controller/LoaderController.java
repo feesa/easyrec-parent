@@ -99,7 +99,7 @@ public class LoaderController extends AbstractController {
         mav.addObject("extendedWebAppPath", request.getScheme() + "://" +
                 //request.getLocalAddr()+ ":" +
                 localName + ":" + request.getLocalPort() + request.getContextPath());
-
+        
         System.out.println("====1.loadcontroller:action:"+action);
         if ("home".equals(action)) {
             mav.setViewName("home");
@@ -343,7 +343,6 @@ public class LoaderController extends AbstractController {
         //            // get operator id
         //            return mav;
         //        }
-
         mav.setViewName("home");
         return mav;
     }

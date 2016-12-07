@@ -596,6 +596,7 @@ to be able to deploy and site-deploy during daily/nightly builds -->
         <module>easyrec-plugins</module>
         <module>easyrec-web</module>
 <!--        <module>easyrec-mahout</module>-->
+    	
     </modules>
 
     <dependencies>

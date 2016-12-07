@@ -138,14 +138,19 @@
                                     <groupId>org.easyrec</groupId>
                                     <artifactId>easyrec-plugins-arm</artifactId>
                                 </artifactItem>
-<!--                                <artifactItem>
+                               <!--  <artifactItem>
                                     <groupId>org.easyrec</groupId>
                                     <artifactId>easyrec-plugins-profile-duke</artifactId>
-                                </artifactItem>-->
+                                </artifactItem> -->
                                 <artifactItem>
                                     <groupId>org.easyrec</groupId>
                                     <artifactId>easyrec-plugins-aggregator</artifactId>
                                 </artifactItem>
+                               <!-- <artifactItem>
+                                    <groupId>org.easyrec</groupId>
+                                    <artifactId>easyrec-plugins-pearson</artifactId>
+                                </artifactItem>
+                                 -->
                             </artifactItems>
                             <!--<excludeTransitive>true</excludeTransitive>-->
                         </configuration>
@@ -268,6 +273,12 @@
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+    		<groupId>org.easyrec</groupId>
+    		<artifactId>easyrec-plugins-pearson</artifactId>
+    		<version>${project.version}</version>
+            <scope>provided</scope>
+    	</dependency>
 
         <!-- JAX_RS dependencies for REST -->
         <dependency>
@@ -450,7 +461,6 @@
             <version>1.1</version>
             <scope>test</scope>
         </dependency>-->
-
     </dependencies>
 
     <properties>
