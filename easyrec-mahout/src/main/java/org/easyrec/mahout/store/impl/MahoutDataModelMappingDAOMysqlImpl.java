@@ -290,7 +290,7 @@ public class MahoutDataModelMappingDAOMysqlImpl extends JdbcDaoSupport implement
         try {
             return new GenericItemPreferenceArray(getJdbcTemplate().query(getPreferencesForItemQuery, args, argTypes, genericBooleanPreferenceRowMapper));
         } catch (EmptyResultDataAccessException e) {
-            logger.warn("An error occurred!", e)
+            logger.warn("An error occurred!", e);
             throw new NoSuchItemException(itemID);
         }
     }

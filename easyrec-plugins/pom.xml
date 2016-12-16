@@ -40,7 +40,10 @@
 <!--        <module>easyrec-plugins-mahout-boolean</module>
         <module>easyrec-plugins-mahout-slopeone</module>-->
         <module>easyrec-plugins-profile-aggregator</module>
-  </modules>
+        <module>easyrec-plugins-itemitem</module>
+        <module>easyrec-plugins-mahout-boolean</module>
+        <module>easyrec-plugins-mahout-slopeone</module>
+    </modules>
     <name>easyrec - Plugins</name>
     <description>This module is a parent module itself, and bundles several plugins for easyrec.</description>
     <!--suppress MavenModelInspection -->

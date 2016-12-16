@@ -100,7 +100,7 @@ public class LoaderController extends AbstractController {
                 //request.getLocalAddr()+ ":" +
                 localName + ":" + request.getLocalPort() + request.getContextPath());
         
-        System.out.println("====1.loadcontroller:action:"+action);
+        logger.info("====1.loadcontroller:action:"+action);
         if ("home".equals(action)) {
             mav.setViewName("home");
 
@@ -289,7 +289,7 @@ public class LoaderController extends AbstractController {
 
 
         if ("load".equals(action)) {
-        	System.out.println("====2.begin load...");
+        	logger.info("====2.begin load...");
             // Hashfunction of user name
             // produces API Key (e.g. 5ZAOMB3BUR8QUN4P = hash(operatorId))
             String apiKey = Text.generateHash(operatorId);
@@ -315,7 +315,7 @@ public class LoaderController extends AbstractController {
             if (!passwordConfirm.equals(password)) {
                 messages.add(MSG.OPERATOR_PASSWORD_MATCH);
             }
-            System.out.println("====3.message size:"+messages.size());
+            logger.info("====3.message size:"+messages.size());
             if (messages.size() > 0) {
                 return MessageBlock.create(mav, "../xml/messageblock", messages, action, MSG.ERROR);
             } else {
@@ -327,11 +327,11 @@ public class LoaderController extends AbstractController {
                                 null, // address,
                                 apiKey, null // ip
                         ));
-                System.out.println("====4.signIn...");
+                logger.info("====4.signIn...");
                 loaderDAO.reloadFrontend();
-                System.out.println("====5.reload...");
+                logger.info("====5.reload...");
                 messages.add(MSG.OPERATOR_REGISTERED.append(" (" + operatorId + ")"));
-                System.out.println("====6.messages add...");
+                logger.info("====6.messages add...");
                 return MessageBlock.create(mav, messages, action, MSG.SUCCESS);
             }
         }

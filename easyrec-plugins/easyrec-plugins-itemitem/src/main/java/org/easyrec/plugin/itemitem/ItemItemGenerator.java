@@ -151,29 +151,29 @@ public class ItemItemGenerator extends GeneratorPluginSupport<ItemItemConfigurat
         itemItemService.setConfiguration(configuration);
 
         // generate actions
-
+        logger.info("===item-to-item:生成actions开始===");
         if (control.isAbortRequested()) return;
 
         control.updateProgress(new Progress(1, 4, "Generating actions"));
 
         int generatedActions = actionDAO.generateActions(tenantId, null);
         stats.setNumberOfActionsConsidered(generatedActions);
-
+        logger.info("===item-to-item:生成actions完成,结果:"+generatedActions+"===");
         // similarity calculation
-
+        logger.info("===item-to-item:相似度计算开始===");
         if (control.isAbortRequested()) return;
 
         control.updateProgress(new Progress(2, 4, "Calculating similarity"));
 
         itemItemService.calculateSimilarity(tenantId, actionTypeId, itemTypeId, assocTypeId, viewTypeId, sourceTypeId,
                 changeDate, stats, control);
-
+        logger.info("===item-to-item:相似度计算完成===");
         // prediction generation
-
+        logger.info("===item-to-item:预测生成开始===");
         if (control.isAbortRequested()) return;
 
         control.updateProgress(new Progress(3, 4, "Calculating predictions"));
-
+        logger.info("===item-to-item:预测生成完成===");
         /* removed for now because user->item associations are not yet enabled
 
    itemItemService.predict(tenantId, actionTypeId, itemTypeId, assocTypeId, viewTypeId, sourceTypeId, changeDate,
@@ -182,6 +182,7 @@ public class ItemItemGenerator extends GeneratorPluginSupport<ItemItemConfigurat
 
         control.updateProgress(new Progress(4, 4, "Finished"));
         stats.setEndDateToNow();
+        logger.info("===item-to-item:计算结束！===");
     }
 
     @SuppressWarnings("UnusedDeclaration")
