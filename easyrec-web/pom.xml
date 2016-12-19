@@ -142,6 +142,10 @@
                                     <groupId>org.easyrec</groupId>
                                     <artifactId>easyrec-plugins-aggregator</artifactId>
                                 </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.easyrec</groupId>
+                                    <artifactId>easyrec-plugins-itemitem</artifactId>
+                                </artifactItem>
                             </artifactItems>
                             <!--<excludeTransitive>true</excludeTransitive>-->
                         </configuration>
@@ -182,7 +186,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- 
+           
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -212,7 +216,7 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			 -->
+			
         </plugins>
     </build>
 
@@ -260,6 +264,11 @@
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+    		<groupId>org.easyrec</groupId>
+    		<artifactId>easyrec-plugins-itemitem</artifactId>
+    		<version>${project.version}</version>
+    	</dependency>
         <!-- JAX_RS dependencies for REST -->
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -435,7 +444,7 @@
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>
+<!--    <dependency>
             <groupId>info.movito</groupId>
             <artifactId>themoviedbapi</artifactId>
             <version>1.1</version>

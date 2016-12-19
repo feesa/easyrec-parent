@@ -274,7 +274,7 @@ public class LoaderController extends AbstractController {
                 mav.setViewName("signup");
 
                 saveConfig(request);
-
+                
                 loaderDAO.reloadBackend();
                 return mav;
             } catch (IOException ioe) {

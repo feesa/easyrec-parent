@@ -735,7 +735,7 @@ public class LoaderDAOMysqlImpl extends JdbcDaoSupport
             ((ConfigurableWebApplicationContext) parent).refresh();
 
         }
-        
+        logger.info("===reloadBackend完成!");
         setDataSource(parent.getBean("easyrecDataSource", com.zaxxer.hikari.HikariDataSource.class));
     }
 
