@@ -15,7 +15,6 @@
     <context-param>
     	<param-name>contextConfigLocation</param-name>
     	<param-value>/WEB-INF/myApplicationContext.xml</param-value>
-    	<description>Spring配置文件位置</description>
     </context-param>
     <listener>
         <listener-class>
@@ -49,7 +48,7 @@
     </filter>
     <filter-mapping>
         <filter-name>ISOCharacterEncodingFilter</filter-name>
-        <servlet-name>dispatch</servlet-name>
+        <servlet-name>mydispatch</servlet-name>
         <!--url-pattern>/*</url-pattern-->
     </filter-mapping>
     

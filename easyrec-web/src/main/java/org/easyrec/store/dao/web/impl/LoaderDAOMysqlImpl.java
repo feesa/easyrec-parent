@@ -20,8 +20,10 @@ package org.easyrec.store.dao.web.impl;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.sun.research.ws.wadl.Application;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.easyrec.model.core.web.Operator;
@@ -47,6 +49,7 @@ import org.springframework.jdbc.support.MetaDataAccessException;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 
 import javax.sql.DataSource;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -681,12 +684,16 @@ public class LoaderDAOMysqlImpl extends JdbcDaoSupport
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
         if (event instanceof ContextRefreshedEvent) {
+        	logger.info("===application event:ContextRefreshedEvent触发!");
             // after context start, check if properties file in folder /override exists
             try {
                 File f = new File(overrideFolder.getFile(), "easyrec.database.properties");
                 // if file exists, config was already written, so boot application as normal
                 if (f.exists()) {
+                	logger.info("===系统配置文件存在,重新reload容器!");
                     reloadContext();
+                }else{
+                	logger.info("===系统配置文件不存在,正常加载!");
                 }
             } catch (IOException ex) {
                 logger.error("Error looking for config file! Running in installer mode as fallback!");

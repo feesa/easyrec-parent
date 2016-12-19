@@ -23,7 +23,7 @@
         </property>
 
     </bean>
-
+    
     <import resource="classpath:spring/web/common/easyrecSettings.xml"/>
 
     <bean id="jspViewResolver"
