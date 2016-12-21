@@ -380,9 +380,11 @@ public class PluginRegistry implements ApplicationContextAware, DisposableBean {
                 });
 
             for (File file : files) {
+            	logger.info("===开始安装plugin:"+file.getName());
                 byte[] pluginContent = IOUtils.toByteArray(new FileInputStream(file));
+                logger.info("===开始验证plugin:"+file.getName());
                 PluginVO defaultPlugin = checkPlugin(pluginContent);
-
+                logger.info("===验证完成:"+file.getName()+",结果:"+(defaultPlugin!=null));
                 if (defaultPlugin != null) {
                     // if an older version of a default plugin exists, delete it
                     if (installedPlugins.containsKey(defaultPlugin.getPluginId().getUri())) {
@@ -396,14 +398,15 @@ public class PluginRegistry implements ApplicationContextAware, DisposableBean {
 
                     pluginDAO.storePlugin(defaultPlugin);
                     installPlugin(defaultPlugin.getPluginId().getUri(), defaultPlugin.getPluginId().getVersion());
-                    
+                    logger.info("===安装插件完成:"+file.getName());
                 }
             }
+            logger.info("===已安装插件数量:"+installedPlugins.entrySet().size());
             // set remaining installed plugins to status INSTALLED; need to be initialized manually after update
             for (Entry<URI,Version> plugin : installedPlugins.entrySet()) {
                 pluginDAO.updatePluginState(plugin.getKey(), plugin.getValue(), LifecyclePhase.INSTALLED.toString());
             }
-            
+            logger.info("===更新插件数量:"+installedPlugins.entrySet().size());
         }
 
         // check if assocType "IS_RELATED" exists for all tenants, if not add it
