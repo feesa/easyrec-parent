@@ -288,7 +288,7 @@ public class AggregateTypeDAOMysqlImpl extends AbstractTableCreatingDAOImpl impl
         try {
             id = getIdOfType(tenantId, aggregateType);
         } catch (IllegalArgumentException e) {
-            logger.warn("An error occurred!", e);
+            logger.warn("An error occurred! info:"+e.getMessage());
             return false;
         }
         return (id != null);

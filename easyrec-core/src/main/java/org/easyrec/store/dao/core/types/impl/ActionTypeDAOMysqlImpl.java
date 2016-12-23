@@ -144,7 +144,7 @@ public class ActionTypeDAOMysqlImpl extends AbstractTableCreatingDAOImpl impleme
                         return DaoUtils.getInteger(rs, DEFAULT_ID_COLUMN_NAME);
                     }
                 } catch (SQLException e) {
-                    logger.error("error occured", e);
+                    logger.error("error occured",e);
                     throw new RuntimeException(e);
                 }
                 throw new IllegalArgumentException("unknown action type: '" + actionType + "'");
@@ -163,7 +163,13 @@ public class ActionTypeDAOMysqlImpl extends AbstractTableCreatingDAOImpl impleme
 
         Object[] args = {tenantId, actionType};
         int[] argTypes = {Types.INTEGER, Types.VARCHAR};
-        return getJdbcTemplate().query(sqlQuery.toString(), args, argTypes, rse);
+        Integer result=null;
+        try{
+        	result=getJdbcTemplate().query(sqlQuery.toString(), args, argTypes, rse);
+        }catch(Exception ex){
+        	logger.error("getIdOfType error:"+ex.getMessage());
+        }
+        return result;
     }
 
     @Override
@@ -428,7 +434,7 @@ public class ActionTypeDAOMysqlImpl extends AbstractTableCreatingDAOImpl impleme
         try {
             id = getIdOfType(tenantId, actionType);
         } catch (IllegalArgumentException e) {
-            logger.warn("An error occurred!", e);
+            logger.warn("An error occurred! exists action Type:"+actionType+" false,info:"+e.getMessage());
             return null;
         }
         return id;

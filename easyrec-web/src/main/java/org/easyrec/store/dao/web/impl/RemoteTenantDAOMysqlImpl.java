@@ -199,7 +199,7 @@ public class RemoteTenantDAOMysqlImpl extends BasicDAOMysqlImpl implements Remot
                 return r;
 
             } catch (Exception e) {
-                logger.warn("An error occurred while getting tenant with id '" + tenantId + "'!", e);
+                logger.warn("An error occurred while getting tenant with id '" + tenantId + "'!,"+e.getMessage());
                 return null;
             }
         }
