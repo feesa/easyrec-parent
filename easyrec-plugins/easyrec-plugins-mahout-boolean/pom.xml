@@ -83,12 +83,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- 
         <dependency>
             <groupId>org.easyrec</groupId>
             <artifactId>easyrec-web</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
+         -->
     </dependencies>
     <groupId>org.easyrec</groupId>
 </project>

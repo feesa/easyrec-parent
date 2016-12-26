@@ -150,6 +150,14 @@
                                     <groupId>org.easyrec</groupId>
                                     <artifactId>easyrec-plugins-itemitem</artifactId>
                                 </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.easyrec</groupId>
+                                    <artifactId>easyrec-plugins-mahout-slopeone</artifactId>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.easyrec</groupId>
+                                    <artifactId>easyrec-plugins-mahout-boolean</artifactId>
+                                </artifactItem>
                             </artifactItems>
                             <!--<excludeTransitive>true</excludeTransitive>-->
                         </configuration>
@@ -280,6 +288,28 @@
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+    		<groupId>org.easyrec</groupId>
+    		<artifactId>easyrec-mahout</artifactId>
+    		<version>${project.version}</version>
+    	</dependency>
+        <dependency>
+    		<groupId>org.easyrec</groupId>
+    		<artifactId>easyrec-plugins-mahout-slopeone</artifactId>
+    		<version>${project.version}</version>
+    		<scope>provided</scope>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.easyrec</groupId>
+    		<artifactId>easyrec-plugins-mahout-boolean</artifactId>
+    		<version>${project.version}</version>
+    		<scope>provided</scope>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.easyrec</groupId>
+    		<artifactId>easyrec-core</artifactId>
+    		<version>${project.version}</version>
+    	</dependency>
         <!-- JAX_RS dependencies for REST -->
         <dependency>
             <groupId>com.sun.jersey</groupId>

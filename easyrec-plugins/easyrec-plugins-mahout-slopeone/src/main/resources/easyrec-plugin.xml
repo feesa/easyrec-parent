@@ -31,7 +31,8 @@
        http://www.springframework.org/schema/aop/spring-aop-2.5.6.xsd">
 
     <import resource="classpath:spring/mahout/dao/MahoutDataModelMappingDAO.xml"/>
-    <import resource="classpath:spring/web/common/dao/itemDAO.xml"/>
+    <!-- <import resource="classpath:spring/web/common/dao/itemDAO.xml"/> -->
+    <import resource="classpath:spring/core/dao/itemDAO.xml"/>
     <import resource="classpath:spring/core/dao/types/ItemTypeDAO.xml"/>
     <import resource="classpath:spring/core/dao/types/AssocTypeDAO.xml"/>
 
